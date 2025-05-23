@@ -1,5 +1,5 @@
 //Jefferson Lima Silva ra:2601419
-public class MineralNaoMetalico extends Mineral{
+public class MineralNaoMetalico extends Mineral implements GerarRelatorio{
 	private String transparencia;
 	private String isolamento;
 
@@ -7,12 +7,6 @@ public class MineralNaoMetalico extends Mineral{
 		super();
 		transparencia="";
 		isolamento="";
-	}
-	public MineralNaoMetalico(String nome, String composicao_quimica, String cor, int dureza, float peso, double valor_comercial,
-														 Origem origem, String transparencia, String isolamento) {
-			 super(nome, composicao_quimica, cor, dureza, peso, valor_comercial, origem);
-			 this.transparencia = transparencia;
-			 this.isolamento = isolamento;
 	}
 	public String GerarRelatorio(){
 		return  "----------------------------------------------------------------------\n"+

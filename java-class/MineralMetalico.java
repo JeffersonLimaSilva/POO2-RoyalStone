@@ -1,5 +1,5 @@
 //Jefferson Lima Silva ra:2601419
-public class MineralMetalico extends Mineral implements RelatorioMineral{
+public class MineralMetalico extends Mineral implements GerarRelatorio{
 	private float ponto_de_fusao;
 	private String condutividade;
 
@@ -7,13 +7,6 @@ public class MineralMetalico extends Mineral implements RelatorioMineral{
 		super();
 		ponto_de_fusao=0;
 		condutividade="";
-	}
-
-	public MineralMetalico(String nome, String composicao_quimica, String cor, int dureza, float peso, double valor_comercial,
-														 Origem origem, float ponto_de_fusao, String condutividade){
-		super(nome, composicao_quimica, cor, dureza, peso, valor_comercial, origem);
-		this.ponto_de_fusao= ponto_de_fusao;
-		this.condutividade=condutividade;
 	}
 	public String GerarRelatorio(){
 		return  "----------------------------------------------------------------------\n"+
