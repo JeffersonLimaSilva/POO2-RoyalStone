@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Administração de Estoque</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Inventario</h1>
+  </header>
+
+    <main>
+
+        <div>
+            <div>
+                <h2 style="margin-top: 2rem;">Add Material</h2>
+                <form>
+                    <label>Material</label>
+                    <input type="text" placeholder="Ex: Diamante" />
+
+                    <label>Tipo</label>
+                    <select>
+                        <option>Pedra Preciosa</option>
+                        <option>Metal</option>
+                    </select>
+
+                    <label>Quantidade</label>
+                    <input type="text" placeholder="Ex: 5g, 2 units" />
+
+                    <button type="submit">Add</button>
+                </form>
+            </div>
+            
+            <div>
+                <h2 style="margin-top: 2rem;">Materiais Usados</h2>
+                <form >
+                    
+                    <label>Meterial Precioso</label>
+                    <select>
+                        <option>Ruby</option>
+                        <option>Emerald</option>
+                        <option>Diamond</option>
+                        <option>Sapphire</option>
+                    </select>
+
+                    <label>Quantidade</label>
+                    <input type="number" id="quantidade">
+
+                    <label>Material Metalico</label>
+                    <select>
+                        <option>Silver</option>
+                        <option>Gold</option>
+                    </select>
+
+                    <label>Quantidade</label>
+                    <input type="number" id="quantidade">
+
+                    <button type="submit">Registrar Uso</button>
+                </form>
+            </div>
+
+            <div>
+                <h2 style="margin-top: 2rem;">Anunciar Joia</h2>
+                <form enctype="multipart/form-data">
+                    <label>Nome</label>
+                    <input type="text" placeholder="Ex: Golden Necklace" />
+
+                    <label>Descrição</label>
+                    <input type="text" placeholder="Short description..." />
+
+                    <label>Preço</label>
+                    <input type="text" placeholder="Ex: 199.99" />
+
+                    <label>Imagem</label>
+                    <input type="file" accept="image/*" />
+
+                    <button type="submit">Add Joia</button>
+                </form>
+            </div>
+
+        </div>
+        <div>
+           
+            <table>
+                <thead>
+                    <tr>
+                    <th>Material</th>
+                    <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Ruby</td><td>Pedra Preciosa</td></tr>
+                    <tr><td>Emerald</td><td>Pedra Preciosa</td></tr>
+                    <tr><td>Sapphire</td><td>Pedra Preciosa</td></tr>
+                    <tr><td>Gold</td><td>Metal</td></tr>
+                    <tr><td>Silver</td><td>Metal</td></tr>
+                </tbody>
+            </table>
+
+             <table>
+                <thead>
+                    <tr>
+                    <th>Material</th>
+                    <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Gold</td><td>10g</td></tr>
+                    <tr><td>Diamond</td><td>2 units</td></tr>
+                    <tr><td>Silver</td><td>5g</td></tr>
+                    <tr><td>Gold</td><td>10g</td></tr>
+                    <tr><td>Diamond</td><td>2 units</td></tr>
+                    <tr><td>Silver</td><td>5g</td></tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </main>
+</body>
+</html>
