@@ -160,3 +160,72 @@ h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
 }
+
+/* === PÁGINA DE CONTATO === */
+.contato-page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contato-page h2 {
+  font-size: 2rem;
+  color: #444;
+}
+
+.contato-page p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.contato-page a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contato-page a:hover {
+  text-decoration: underline;
+}
+
+/* === PÁGINA DE CATEGORIAS === */
+.categorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.categoria {
+  background-color: #ffffff;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.categoria:hover {
+  transform: translateY(-5px);
+}
+
+.categoria img {
+  width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.categoria h3 {
+  font-size: 1.2rem;
+  color: #333;
+}
+
