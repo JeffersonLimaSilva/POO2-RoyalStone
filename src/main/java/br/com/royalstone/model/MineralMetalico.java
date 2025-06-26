@@ -1,6 +1,13 @@
 package br.com.royalstone.model;
 
+import br.com.royalstone.enums.CorMineral;
+
 public class MineralMetalico extends Mineral {
+	public MineralMetalico(String nome, String composicao_quimica, CorMineral cor, int dureza, float peso,
+			double valor_comercial) {
+		super(nome, composicao_quimica, cor, dureza, peso, valor_comercial);
+	}
+
 	private int pontoFusao;
 	private Joia joia;
 

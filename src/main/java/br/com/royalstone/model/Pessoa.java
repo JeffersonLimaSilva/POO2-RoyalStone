@@ -1,13 +1,47 @@
 package br.com.royalstone.model;
 
-public class Pessoa {
+import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails; // Importe UserDetails
+import java.util.Collection;
+import java.util.Collections; // Para Collections.singletonList
+
+@Entity
+@Table(name = "pessoa") // É uma boa prática definir o nome da tabela (em minúsculas para PostgreSQL)
+public class Pessoa implements UserDetails { // <--- ADICIONE "implements UserDetails"
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String nome;
 	private String cpf;
-	private String dataNasc;
+	private String dataNasc; // Mantendo como String, conforme sua preferência
 	private String telefone;
 	private String email;
 	private String senha;
+	
+	@Embedded
 	private Endereco endereco;
+	
+	private String role; // Ex: "ADMIN", "CLIENTE"
+
+    // --- MÉTODOS GETTERS E SETTERS (já existentes) ---
+	public String getRole() {
+		return role;
+	}
+	
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	public String getNome() {
 		return nome;
@@ -51,8 +85,49 @@ public class Pessoa {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	
-	
-	
-	
+
+    // --- IMPLEMENTAÇÃO DOS MÉTODOS DE USERDETAILS (ADICIONE ESTES) ---
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // Converte a String 'role' para uma coleção de GrantedAuthority
+        // O Spring Security espera que os roles tenham o prefixo "ROLE_"
+        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + this.role));
+    }
+
+    @Override
+    public String getPassword() {
+        // Retorna a senha armazenada na entidade
+        return this.senha;
+    }
+
+    @Override
+    public String getUsername() {
+        // Retorna o email como o nome de usuário para o Spring Security
+        return this.email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        // Retorna true para indicar que a conta não está expirada
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        // Retorna true para indicar que a conta não está bloqueada
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        // Retorna true para indicar que as credenciais (senha) não expiraram
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        // Retorna true para indicar que o usuário está habilitado
+        return true;
+    }
 }

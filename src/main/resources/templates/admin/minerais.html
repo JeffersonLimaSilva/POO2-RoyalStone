@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciar Minerais</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Lista de Minerais</h1>
+
+    <div th:if="${mensagemSucesso}" class="mensagem-sucesso">
+        <p th:text="${mensagemSucesso}"></p>
+    </div>
+    <div th:if="${mensagemErro}" class="mensagem-erro">
+        <p th:text="${mensagemErro}"></p>
+    </div>
+
+    <a th:href="@{/admin/minerais/novo}">Cadastrar Novo Mineral</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Composição Química</th>
+                <th>Cor</th>
+                <th>Dureza</th>
+                <th>Peso</th>
+                <th>Valor Comercial</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="mineral : ${minerais}">
+                <td th:text="${mineral.id}"></td>
+                <td th:text="${mineral.nome}"></td>
+                <td th:text="${mineral.composicaoQuimica}"></td>
+                <td th:text="${mineral.cor}"></td>
+                <td th:text="${mineral.dureza}"></td>
+                <td th:text="${mineral.peso}"></td>
+                <td th:text="${mineral.valorComercial}"></td>
+                <td>
+                    <a th:href="@{/admin/minerais/editar/{id}(id=${mineral.id})}">Editar</a>
+                    <a th:href="@{/admin/minerais/excluir/{id}(id=${mineral.id})}" onclick="return confirm('Tem certeza que deseja excluir este mineral?');">Excluir</a>
+                </td>
+            </tr>
+            <tr th:if="${minerais.empty}">
+                <td colspan="8">Nenhum mineral cadastrado.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

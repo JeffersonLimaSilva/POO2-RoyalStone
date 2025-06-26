@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Mineral</title>
+    <link rel="stylesheet" href="/css/styleForm.css">
+</head>
+<body>
+  <h2 th:text="${#strings.isEmpty(mineral.id) ? 'Novo Mineral' : 'Editar Mineral'}"></h2>
+
+  <form th:action="@{/admin/minerais}" method="post" th:object="${mineral}">
+    <input type="hidden" th:field="*{id}" />
+
+    <label>Nome:</label>
+    <input type="text" th:field="*{nome}" required><br>
+
+    <label>Composição Química:</label>
+    <input type="text" th:field="*{composicaoQuimica}" required><br>
+
+    <label>Cor:</label>
+    <select th:field="*{cor}">
+      <option th:each="c : ${cores}" th:value="${c}" th:text="${c}"></option>
+    </select><br>
+
+    <label>Dureza:</label>
+    <input type="number" th:field="*{dureza}" required><br>
+
+    <label>Peso:</label>
+    <input type="number" step="0.01" th:field="*{peso}" required><br>
+
+    <label>Valor Comercial:</label>
+    <input type="number" step="0.01" th:field="*{valorComercial}" required><br>
+
+    <button type="submit">Salvar</button>
+    
+  </form>
+
+  <a th:href="@{/admin/minerais}">Voltar à lista</a>
+</body>
+</html>

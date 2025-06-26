@@ -1,0 +1,152 @@
+
+
+/* --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- */
+/* --- SEÇÃO DE ESTILOS ESPECÍFICOS PARA login.html (Página de Login) */
+/* --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- */
+
+/* Estilos para o corpo da página de login */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    min-height: 100vh; /* Garante que ocupe toda a altura da viewport */
+    background-color: #e6e0d9; /* Um tom de cinza-claro/bege para o fundo */
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    padding: 2rem;
+}
+
+/* Estilos para o título da página de login */
+h2 {
+    font-size: 2.5rem;
+    color: #4a4a4a;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilos para o formulário de login */
+form {
+    background-color: #ffffff;
+    padding: 3rem; /* Padding maior para um visual mais espaçoso */
+    border-radius: 15px; /* Cantos bem arredondados */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada e suave */
+    width: 100%;
+    max-width: 400px; /* Largura máxima do formulário */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaçamento entre os elementos do formulário */
+}
+
+/* Estilos para os labels dos campos */
+label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.5rem;
+    display: block; /* Garante que o label ocupe sua própria linha */
+    font-size: 1.1rem;
+}
+
+/* Estilos para os campos de input de texto e senha */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 1rem 1.2rem; /* Padding generoso */
+    border: 1px solid #c0c0c0; /* Borda levemente mais escura */
+    border-radius: 8px;
+    font-size: 1.1rem;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #8a857f; /* Uma cor de borda que combina com o tema mineral */
+    box-shadow: 0 0 0 4px rgba(138, 133, 127, 0.2); /* Sombra ao focar */
+    outline: none; /* Remove o outline padrão */
+}
+
+/* Remove a quebra de linha padrão do <br> */
+br {
+    display: none;
+}
+
+/* Estilos para o botão de "Entrar" */
+button[type="submit"] {
+    background-color: #a7a39d; /* Cor do botão principal, inspirada em minerais */
+    color: #fff;
+    padding: 1.2rem 2.5rem; /* Padding maior para o botão */
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px; /* Cantos ligeiramente mais arredondados */
+    cursor: pointer;
+    margin-top: 2rem; /* Mais espaço acima do botão */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    align-self: center; /* Centraliza o botão dentro do formulário */
+    width: 80%; /* Largura do botão */
+    max-width: 200px; /* Largura máxima para o botão */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+button[type="submit"]:hover {
+    background-color: #8f8b85; /* Escurece no hover */
+    transform: translateY(-3px); /* Efeito de levantar */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Sombra mais intensa */
+}
+
+
+/* Estilos para o container geral das mensagens de feedback */
+.message-container { /* Altera de 'div[th:if="${param.error}"], div[th:if="${param.logout}"]' para esta classe */
+    margin-top: 1.5rem;
+    padding: 0; /* Removendo padding do container para que o <p> controle */
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+/* Estilos para o parágrafo de erro */
+.error-message p { /* Altera de 'div[th:if="${param.error}"] p' para esta classe */
+    color: #cc3333; /* Vermelho mais vibrante para erro */
+    background-color: #ffebeb; /* Fundo vermelho claro para erro */
+    border: 1px solid #cc3333;
+    padding: 0.8rem; /* Padding interno do parágrafo */
+    border-radius: 6px;
+}
+
+/* Estilos para o parágrafo de logout/sucesso */
+.success-message p { /* Altera de 'div[th:if="${param.logout}"] p' para esta classe */
+    color: #28a745; /* Verde para sucesso */
+    background-color: #e6ffe6; /* Fundo verde claro para sucesso */
+    border: 1px solid #28a745;
+    padding: 0.8rem; /* Padding interno do parágrafo */
+    border-radius: 6px;
+}
+
+.cadastro-link-container {
+    margin-top: 2rem; /* Espaçamento acima do container do link */
+    text-align: center;
+    font-size: 1rem;
+    color: #666;
+}
+
+.cadastro-link-container p {
+    margin: 0; /* Remove margem padrão do parágrafo */
+}
+
+.cadastro-link-container a {
+    color: #a7a39d; /* Cor do link, similar aos botões ou temas anteriores */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.cadastro-link-container a:hover {
+    color: #8f8b85; /* Escurece no hover */
+    text-decoration: underline;
+}
+

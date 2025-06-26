@@ -1,42 +1,72 @@
 package br.com.royalstone.model;
 
-//Jefferson Lima Silva ra:2601419
+import br.com.royalstone.enums.CorMineral;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity; // Importação para o Entity, do banco de dados.
+import jakarta.persistence.EnumType; //Importação para o JPA
+import jakarta.persistence.Enumerated; // Importação para o Enumerated
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-public abstract class Mineral{
+@Entity
+@Table(name = "mineral")
+public class Mineral{
+	
+	@Id // Marca este campo como a chave primária
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Configura o banco de dados para gerar o ID automaticamente
+	
+	@Column(name = "id")
+    private Long id; 
+
+	
+	@Column(name = "nome")
 	private String nome;
-	private String composicao_quimica;
-	private String cor;
+	
+	@Column(name = "composicao_quimica")
+	private String composicaoQuimica;
+	
+	@Enumerated(EnumType.STRING)
+	private CorMineral cor;
+	
+	@Column(name = "dureza")
 	private int dureza;
+	
+	@Column(name = "peso")
 	private float peso;
-	private double valor_comercial;
-	//private Origem origem;
+	
+	@Column(name = "valor_comercial")
+	private double valorComercial;
 
-	public Mineral() {
-		nome = "";
-		composicao_quimica = "";
-		cor = "";
-		dureza = 0;
-		peso = 0;
-		valor_comercial = 0.0;
-		//origem = new Origem("","","");
+	public Mineral(){
 	}
+	
+	 public Mineral(String nome, String composicao_quimica, CorMineral cor, int dureza, float peso, double valor_comercial) {
+	        this.nome = nome;
+	        this.composicaoQuimica = composicao_quimica;
+	        this.cor = cor;
+	        this.dureza = dureza;
+	        this.peso = peso;
+	        this.valorComercial = valor_comercial;
+	    }
+	
+	 // --- GETTERS E SETTERS ---
+	
+    public Long getId() {
+        return id;
+    }
 
-	public Mineral(String nome, String composicao_quimica, String cor, int dureza, float peso, double valor_comercial /*Origem origem*/){
-		this.nome=nome;
-		this.composicao_quimica=composicao_quimica;
-		this.cor=cor;
-		this.dureza=dureza;
-		this.peso=peso;
-		this.valor_comercial=valor_comercial;
-		//this.origem= new Origem();
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 	public String getNome(){
 		return nome;
 	}
 	public String getComposicaoQuimica(){
-		return composicao_quimica;
+		return composicaoQuimica;
 	}
-	public String getCor(){
+	public CorMineral getCor(){
 		return cor;
 	}
 	public int getDureza(){
@@ -46,48 +76,26 @@ public abstract class Mineral{
 		return peso;
 	}
 	public double getValorComercial(){
-		return valor_comercial;
+		return valorComercial;
 	}
-	/*public Origem getOrigem(){
-		return origem;
-	}*/
 
 	public void setNome(String nome){
 		this.nome=nome;
 	}
-	public void setComposicaoQuimica(String composicao_quimica) /*throws ComposicaoQGrdException*/{
-		/*if(composicao_quimica.length()<=10){*/
-			this.composicao_quimica=composicao_quimica;
-		/*}
-		else{
-			throw new ComposicaoQGrdException();
-		}*/
+	public void setComposicaoQuimica(String composicao_quimica){
+		this.composicaoQuimica=composicao_quimica;
 	}
-	public void setCor(String cor){
+	public void setCor(CorMineral cor){
 		this.cor=cor;
 	}
-	public void setDureza(int dureza) /*throws DurezaPqnException, DurezaGrdException*/{
-		/*if(dureza > 0){
-			if (dureza <=10) {*/
-				this.dureza=dureza;
-			/*}
-			else{
-				throw new DurezaGrdException();
-			}
-		}
-		else{
-			throw new DurezaPqnException();
-		}*/
+	public void setDureza(int dureza){
+		this.dureza=dureza;
 	}
 	public void setPeso(float peso){
 		this.peso=peso;
 	}
 	public void setValorComercial(double valor_comercial){
-		this.valor_comercial=valor_comercial;
+		this.valorComercial=valor_comercial;
 	}
-	/*public void setOrigem(Origem origem){
-		this.origem=origem;
-	}*/
-	//abstract String Valor_para_Venda();
 
 }
