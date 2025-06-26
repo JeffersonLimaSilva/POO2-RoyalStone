@@ -1,0 +1,78 @@
+package com.mycompany.aula1_conexao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class InsercaoJoalheria {
+    static Connection con = null;
+    static String url = "jdbc:postgresql://localhost:5432/Conexao";
+    static String driver = "org.postgresql.Driver";
+    static String user = "postgres";
+    static String senha = "060262";
+
+    public static void main(String[] args) {
+        try {
+            Class.forName(driver);
+            con = DriverManager.getConnection(url, user, senha);
+            Statement st = con.createStatement();
+
+            // Inserir Endereco
+            String sqlEndereco = "INSERT INTO Endereco (rua, cidade) VALUES ('Rua das Pedras', 'São Paulo')";
+            st.executeUpdate(sqlEndereco);
+            System.out.println("Endereço inserido.");
+
+            // Inserir Pessoa
+            String sqlPessoa = "INSERT INTO Pessoa (nome, cpf, data_nascimento, telefone, email, senha, endereco_id) " +
+                    "VALUES ('Maria Silva', '123.456.789-00', '01/01/1990', '11999999999', 'maria@email.com', 'senha123', 1)";
+            st.executeUpdate(sqlPessoa);
+            System.out.println("Pessoa inserida.");
+
+            // Inserir Cliente (Pessoa ID = 1)
+            String sqlCliente = "INSERT INTO Cliente (id) VALUES (1)";
+            st.executeUpdate(sqlCliente);
+            System.out.println("Cliente inserido.");
+
+            // Inserir Origem
+            String sqlOrigem = "INSERT INTO Origem (pais, cidade, tipo_extracao) " +
+                    "VALUES ('Brasil', 'Ouro Preto', 'Mineracao Subterranea')";
+            st.executeUpdate(sqlOrigem);
+            System.out.println("Origem inserida.");
+
+            // Inserir Mineral (ID será 1)
+            String sqlMineral1 = "INSERT INTO Mineral (nome, comp_quimica, cor, dureza, peso, valor_comercial, origem_id) " +
+                    "VALUES ('Diamante', 'C', 'Incolor', 10, 0.5, 5000.0, 1)";
+            st.executeUpdate(sqlMineral1);
+            System.out.println("Mineral Precioso inserido.");
+
+            // Inserir MineralPrecioso (usando o Mineral ID = 1)
+            String sqlMineralPrecioso = "INSERT INTO MineralPrecioso (id, certificado, refinamento) " +
+                    "VALUES (1, 'CertDiamante001', 'Alto')";
+            st.executeUpdate(sqlMineralPrecioso);
+            System.out.println("Mineral Precioso inserido.");
+
+            // Inserir outro Mineral (ID será 2)
+            String sqlMineral2 = "INSERT INTO Mineral (nome, comp_quimica, cor, dureza, peso, valor_comercial, origem_id) " +
+                    "VALUES ('Ouro', 'Au', 'Dourado', 3, 1.0, 3000.0, 1)";
+            st.executeUpdate(sqlMineral2);
+            System.out.println("Mineral Metálico inserido.");
+
+            // Inserir MineralMetalico (usando Mineral ID = 2)
+            String sqlMineralMetalico = "INSERT INTO MineralMetalico (id, ponto_fusao) " +
+                    "VALUES (2, 1064)";
+            st.executeUpdate(sqlMineralMetalico);
+            System.out.println("Mineral Metálico inserido.");
+
+            // Inserir Joia
+            String sqlJoia = "INSERT INTO Joia (precioso_id, metalico_id, valor_venda) " +
+                    "VALUES (1, 2, 15000.0)";
+            st.executeUpdate(sqlJoia);
+            System.out.println("Joia inserida.");
+
+            st.close();
+            con.close();
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
+    }
+}
