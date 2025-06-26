@@ -1,75 +1,440 @@
-@charset "UTF-8";
-*{margin:0; padding:0; box-sizing: border-box;}
-
-
-body{background-image: url('img/bg-desktop.svg');}
-
-nav{
-	background:  linear-gradient(90deg, #000000 0%, #0a0f1c 40%, #132b44 75%, #2469cc 100%);
-	height:100px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.nav-link{
-	color:white;
-	font-weight:bold;
+body {
+  background-color: #f1eee9;
+  color: #333;
+  padding: 2rem;
+
+  width: 1300px;
+  height: 400px;
+  margin: auto;
 }
 
-.nav-link:hover{
-	color:#66bbf4;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-.btn-outline-success{
-	
-	background-color: #0b203d;
-	color:white;
-	font-weight:bold;
-	border-color: #0b203d;
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
 }
 
-.btn-outline-success:hover{
-	background-color: #fa6900;
-	color:white;
-	border-color: #fa6900;
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
 }
 
-.neo-section{
-	min-height:700px;
-	background-size: cover !important;
-	background-position: center;
-	background-repeat: no-repeat;
-	width: 100%;
-	padding:30px;
-	position: relative;
+main{
+    display: flex;
+    flex-direction: column;
+
+    >div{
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
-.transparent-card {
-  background-color: rgba(0, 0, 0, 0.4); /* fundo escuro translúcido */
+h1 {
+  font-size: 2.5rem;
+}
+
+button {
+  background-color: #d7d3cc;
   border: none;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* sombra leve */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
 }
 
-.card{
-	text-align:center;
-	 transition: transform 0.3s ease, box-shadow 0.3s ease;
+.container {
+  display: grid;
+  gap: 2rem;
 }
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+.grid-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
 }
 
-.blur-overlay {
-  position: absolute;
-  inset: 0;
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.1); /* opcional */
-  z-index: 1;
+.produto {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  text-align: center;
 }
 
-.content-container {
-  position: relative;
-  z-index: 2;
+.produto img {
+  max-width: 100%;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background-color: #fdfdfd;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 350px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+input, select {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+input[type="file"] {
+  background-color: #fafafa;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+table {
+  margin-top: 2rem;
+  width: 45%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.auth-box {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  max-width: 400px;
+  width: 100%;
+}
+
+.auth-box h2 {
+  margin-bottom: 1rem;
+}
+
+.auth-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-box input {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* === PÁGINA DE CONTATO === */
+.contato-page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contato-page h2 {
+  font-size: 2rem;
+  color: #444;
+}
+
+.contato-page p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.contato-page a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contato-page a:hover {
+  text-decoration: underline;
+}
+
+/* === PÁGINA DE CATEGORIAS === */
+.categorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.categoria {
+  background-color: #ffffff;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.categoria:hover {
+  transform: translateY(-5px);
+}
+
+.categoria img {
+  width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.categoria h3 {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+
+
+/* === Estilos para a página de Cadastro/Edição de Mineral === */
+.mineral-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente (se o body permitir) */
+    min-height: calc(100vh - 4rem); /* Ajusta a altura mínima para centralizar */
+    padding: 2rem;
+}
+
+.mineral-form-container h2 {
+    margin-bottom: 1.5rem;
+    color: #444;
+}
+
+.mineral-form-container form {
+    width: 100%;
+    max-width: 450px; /* Limita a largura do formulário */
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Aumenta o espaçamento entre os elementos */
+}
+
+.mineral-form-container label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.3rem;
+    display: block; /* Garante que o label ocupe sua própria linha */
+}
+
+.mineral-form-container input[type="text"],
+.mineral-form-container input[type="number"],
+.mineral-form-container select {
+    width: 100%;
+    padding: 0.8rem 1rem; /* Aumenta o padding */
+    border: 1px solid #dcdcdc; /* Borda mais clara */
+    border-radius: 8px; /* Cantos mais arredondados */
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.mineral-form-container input[type="text"]:focus,
+.mineral-form-container input[type="number"]:focus,
+.mineral-form-container select:focus {
+    border-color: #a7a39d; /* Cor da borda ao focar */
+    box-shadow: 0 0 0 3px rgba(215, 211, 204, 0.5); /* Sombra ao focar */
+    outline: none;
+}
+
+.mineral-form-container button[type="submit"] {
+    background-color: #a7a39d; /* Cor do botão inspirada no tema */
+    color: #fff;
+    padding: 1rem 1.8rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Centraliza o botão */
+    width: 60%; /* Define uma largura para o botão */
+}
+
+.mineral-form-container button[type="submit"]:hover {
+    background-color: #8f8b85; /* Escurece no hover */
+}
+
+.mineral-form-container a {
+    display: block;
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #666;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.mineral-form-container a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- */
+/* --- SEÇÃO DE ESTILOS ESPECÍFICOS PARA minerais.html (Página de Listagem de Minerais) */
+/* --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- */
+
+/* Estilos para o título principal da página */
+h1 {
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilos para as mensagens de sucesso/erro */
+.mensagem-sucesso, .mensagem-erro {
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.mensagem-sucesso {
+    background-color: #d4edda; /* Verde claro */
+    color: #155724; /* Verde escuro */
+    border: 1px solid #c3e6cb;
+}
+
+.mensagem-erro {
+    background-color: #f8d7da; /* Vermelho claro */
+    color: #721c24; /* Vermelho escuro */
+    border: 1px solid #f5c6cb;
+}
+
+/* Estilo para o link "Cadastrar Novo Mineral" */
+body > a[href$="/novo"] { /* Seleciona links diretos no body que terminam com '/novo' */
+    display: inline-block;
+    background-color: #6a8e7a; /* Um verde-acinzentado, cor de pedra */
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 2rem; /* Espaço abaixo do botão */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+body > a[href$="/novo"]:hover {
+    background-color: #5d7c6b;
+    transform: translateY(-2px); /* Efeito sutil ao passar o mouse */
+}
+
+/* Estilos para a tabela de minerais */
+table {
+    width: 100%; /* Ocupa toda a largura disponível */
+    border-collapse: collapse; /* Remove espaçamento entre as bordas das células */
+    background-color: #fff;
+    border-radius: 12px; /* Cantos arredondados para a tabela */
+    overflow: hidden; /* Garante que os cantos arredondados sejam visíveis */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para a tabela */
+    margin-bottom: 2rem;
+}
+
+/* Estilos para o cabeçalho da tabela */
+th {
+    background-color: #e2e2e2; /* Cor de fundo para o cabeçalho */
+    color: #555;
+    font-weight: 700;
+    text-align: left;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 2px solid #ccc; /* Borda mais grossa na parte inferior do cabeçalho */
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+/* Estilos para as células de dados da tabela */
+td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #eee; /* Borda fina entre as linhas */
+    color: #444;
+}
+
+/* Alterna a cor de fundo das linhas para melhor legibilidade */
+tbody tr:nth-child(even) {
+    background-color: #f8f8f8; /* Linhas pares com fundo levemente diferente */
+}
+
+/* Estilo ao passar o mouse sobre as linhas da tabela */
+tbody tr:hover {
+    background-color: #f0f0f0; /* Realça a linha ao passar o mouse */
+    transition: background-color 0.2s ease;
+}
+
+/* Estilos para os links de ação (Editar/Excluir) */
+td a {
+    color: #007bff; /* Cor azul padrão para links */
+    text-decoration: none;
+    margin-right: 1rem;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+    font-weight: 500;
+}
+
+td a:hover {
+    color: #0056b3; /* Azul mais escuro ao passar o mouse */
+    text-decoration: underline;
+}
+
+/* Estilo para a mensagem "Nenhum mineral cadastrado." */
+table tbody tr:last-child td[colspan="8"] {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    padding: 1.5rem;
+}
+
+
+
