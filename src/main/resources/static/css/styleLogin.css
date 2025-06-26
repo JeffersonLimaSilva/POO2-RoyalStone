@@ -50,7 +50,7 @@ label {
 }
 
 /* Estilos para os campos de input de texto e senha */
-input[type="text"],
+input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 1rem 1.2rem; /* Padding generoso */
@@ -61,7 +61,7 @@ input[type="password"] {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-input[type="text"]:focus,
+input[type="email"]:focus,
 input[type="password"]:focus {
     border-color: #8a857f; /* Uma cor de borda que combina com o tema mineral */
     box-shadow: 0 0 0 4px rgba(138, 133, 127, 0.2); /* Sombra ao focar */

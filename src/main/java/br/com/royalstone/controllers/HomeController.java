@@ -11,6 +11,13 @@ public class HomeController {
         
         return "cliente/index"; 
     }
+    
+    @GetMapping("/home") 
+    public String showHomePageAfterLogin() {
+        // Redireciona para a mesma página inicial do cliente,
+        // mas através de uma URL específica para o handler.
+        return "cliente/index";
+    }
 
     @GetMapping("/contato")
     public String showContatoPage() {
