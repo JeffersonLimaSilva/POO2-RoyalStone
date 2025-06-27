@@ -2,24 +2,25 @@ package br.com.royalstone.model;
 
 import br.com.royalstone.enums.CorMineral;
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity; // Importação para o Entity, do banco de dados.
-import jakarta.persistence.EnumType; //Importação para o JPA
-import jakarta.persistence.Enumerated; // Importação para o Enumerated
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance; // IMPORTANTE: Nova importação
+import jakarta.persistence.InheritanceType; // IMPORTANTE: Nova importação
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "mineral")
-public class Mineral{
+@Inheritance(strategy = InheritanceType.JOINED) // IMPORTANTE: Nova anotação
+public class Mineral {
 	
-	@Id // Marca este campo como a chave primária
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Configura o banco de dados para gerar o ID automaticamente
-	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private Long id; 
-
+    private Long id;    
 	
 	@Column(name = "nome")
 	private String nome;
@@ -28,28 +29,29 @@ public class Mineral{
 	private String composicaoQuimica;
 	
 	@Enumerated(EnumType.STRING)
-	private CorMineral cor;
+	private CorMineral cor; // Este campo é específico de Mineral, e é herdado.
 	
 	@Column(name = "dureza")
 	private int dureza;
 	
 	@Column(name = "peso")
-	private float peso;
+	private float peso; // Peso em gramas (ex: de uma pedra solta)
 	
 	@Column(name = "valor_comercial")
-	private double valorComercial;
+	private double valorComercial; // Valor comercial do mineral por unidade ou peso
 
 	public Mineral(){
+	    // Construtor padrão obrigatório para JPA
 	}
 	
-	 public Mineral(String nome, String composicao_quimica, CorMineral cor, int dureza, float peso, double valor_comercial) {
-	        this.nome = nome;
-	        this.composicaoQuimica = composicao_quimica;
-	        this.cor = cor;
-	        this.dureza = dureza;
-	        this.peso = peso;
-	        this.valorComercial = valor_comercial;
-	    }
+	 public Mineral(String nome, String composicaoQuimica, CorMineral cor, int dureza, float peso, double valorComercial) {
+        this.nome = nome;
+        this.composicaoQuimica = composicaoQuimica; // Corrigido para usar o nome do campo
+        this.cor = cor;
+        this.dureza = dureza;
+        this.peso = peso;
+        this.valorComercial = valorComercial;
+    }
 	
 	 // --- GETTERS E SETTERS ---
 	
@@ -82,8 +84,8 @@ public class Mineral{
 	public void setNome(String nome){
 		this.nome=nome;
 	}
-	public void setComposicaoQuimica(String composicao_quimica){
-		this.composicaoQuimica=composicao_quimica;
+	public void setComposicaoQuimica(String composicaoQuimica){ // Corrigido o parâmetro aqui também
+		this.composicaoQuimica=composicaoQuimica;
 	}
 	public void setCor(CorMineral cor){
 		this.cor=cor;
@@ -94,8 +96,7 @@ public class Mineral{
 	public void setPeso(float peso){
 		this.peso=peso;
 	}
-	public void setValorComercial(double valor_comercial){
-		this.valorComercial=valor_comercial;
+	public void setValorComercial(double valorComercial){ // Corrigido o parâmetro aqui também
+		this.valorComercial=valorComercial;
 	}
-
 }

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Carrinho - Royalstone Joalheria</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Estilos específicos para o carrinho */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            margin-bottom: 15px;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .item-details {
+            flex-grow: 1;
+        }
+        .item-details h3 {
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+        .item-details p {
+            margin: 0;
+            color: #555;
+        }
+        .item-price {
+            font-weight: bold;
+            color: #b8860b;
+        }
+        .cart-summary {
+            text-align: right;
+            margin-top: 30px;
+            border-top: 2px solid #b8860b;
+            padding-top: 20px;
+        }
+        .cart-summary h2 {
+            font-size: 1.8em;
+            color: #333;
+        }
+        .cart-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .btn-remover, .btn-limpar {
+            background-color: #dc3545; /* Vermelho para remover/limpar */
+        }
+        .btn-remover:hover, .btn-limpar:hover {
+            background-color: #c82333;
+        }
+        .btn-checkout {
+             background-color: #28a745; /* Verde para checkout */
+        }
+        .btn-checkout:hover {
+            background-color: #218838;
+        }
+        /* Alertas */
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .alert.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #badbcc;
+        }
+        .alert.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <h1>Meu Carrinho de Compras</h1>
+
+    <div th:if="${mensagemSucesso}" class="alert success">
+        <p th:text="${mensagemSucesso}"></p>
+    </div>
+    <div th:if="${mensagemErro}" class="alert error">
+        <p th:text="${mensagemErro}"></p>
+    </div>
+
+    <div th:if="${#lists.isEmpty(itensCarrinho)}">
+        <p>Seu carrinho está vazio.</p>
+        <p><a th:href="@{/loja}">Voltar para a Loja</a></p>
+    </div>
+
+    <div th:unless="${#lists.isEmpty(itensCarrinho)}">
+        <div th:each="item : ${itensCarrinho}" class="cart-item">
+            <img th:src="${item.imagemUrl}" th:alt="${item.nomeJoia}">
+            <div class="item-details">
+                <h3><span th:text="${item.nomeJoia}">Nome da Joia</span></h3>
+                <p>Preço Unitário: <span th:text="${#numbers.formatCurrency(item.precoUnitario)}" class="item-price">R$ 0,00</span></p>
+                <p>Quantidade: <span th:text="${item.quantidade}">1</span></p>
+                <p>Subtotal: <span th:text="${#numbers.formatCurrency(item.subtotal)}" class="item-price">R$ 0,00</span></p>
+            </div>
+            <form th:action="@{/carrinho/remover}" method="post">
+                <input type="hidden" name="joiaId" th:value="${item.joiaId}" />
+                <button type="submit" class="btn-remover">Remover</button>
+            </form>
+        </div>
+
+        <div class="cart-summary">
+            <h2>Total do Carrinho: <span th:text="${#numbers.formatCurrency(totalCarrinho)}">R$ 0,00</span></h2>
+            <div class="cart-actions">
+                <form th:action="@{/carrinho/limpar}" method="post" style="display:inline;">
+                    <button type="submit" class="btn-limpar">Limpar Carrinho</button>
+                </form>
+                <button class="btn-checkout">Finalizar Compra</button> </div>
+        </div>
+    </div>
+
+    <p style="margin-top: 30px;"><a th:href="@{/loja}">Continuar Comprando</a></p>
+    
+    <footer>
+        <p>&copy; <span th:text="${#dates.year(#dates.createNow())}">2025</span> Royalstone Joalheria. Todos os direitos reservados.</p>
+        <form th:action="@{/logout}" method="post" style="display:inline;">
+            <button type="submit">Sair</button>
+        </form>
+    </footer>
+</body>
+</html>

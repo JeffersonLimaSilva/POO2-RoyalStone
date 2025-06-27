@@ -2,6 +2,7 @@ package br.com.royalstone.enums;
 
 //Enum de CorMineral para uma Cor de Joia
 public enum CorMineral {
+	TRANSPARENTE("Transparente"),
 	VERMELHO("Vermelho"),
 	AZUL("Azul"),
 	AMARELO("Amarelo"),

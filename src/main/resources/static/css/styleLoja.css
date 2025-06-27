@@ -1,0 +1,187 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+a {
+    color: #b8860b; /* Cor de ouro para links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #b8860b;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #a0740a;
+}
+
+/* Estilos específicos para a loja */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsivo */
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 200px; /* Altura fixa para as imagens */
+    object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.product-card h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.product-card p {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 10px;
+    flex-grow: 1; /* Faz a descrição ocupar o espaço restante */
+}
+
+.product-card .price {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #b8860b; /* Cor de ouro */
+    margin-top: 10px;
+}
+
+.product-card .stock-info {
+    font-size: 0.85em;
+    color: #777;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.product-card .stock-esgotado {
+    color: red;
+    font-weight: bold;
+}
+
+/* Estilos para a página de detalhes (se você for movê-la também) */
+.joia-detalhes {
+    display: flex;
+    flex-wrap: wrap; /* Para responsividade em telas menores */
+    gap: 30px;
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.joia-detalhes img {
+    max-width: 100%;
+    width: 450px; /* Tamanho base da imagem */
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 4px;
+    flex-shrink: 0; /* Impede que a imagem encolha */
+}
+
+.joia-info {
+    flex-grow: 1; /* Permite que o bloco de informações cresça */
+    min-width: 300px; /* Garante que não fique muito pequeno */
+}
+
+.joia-info h1 {
+    margin-top: 0;
+    color: #333;
+    font-size: 2.2em;
+}
+.joia-info p {
+    line-height: 1.8;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+.joia-info p strong {
+    color: #555;
+}
+
+.joia-info .preco {
+    font-size: 2em;
+    color: #b8860b;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+.joia-info .btn-comprar {
+    background-color: #b8860b;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+.joia-info .btn-comprar:hover {
+    background-color: #a0740a;
+}
+.joia-info .btn-comprar[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+.joia-info .estoque-info {
+    font-style: italic;
+    color: #777;
+    margin-top: 15px;
+}
+.joia-info .estoque-esgotado {
+    color: red;
+    font-weight: bold;
+}
+
+/* Rodapé genérico */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    border-top: 1px solid #eee;
+    color: #777;
+}

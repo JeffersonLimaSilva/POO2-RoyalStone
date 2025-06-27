@@ -8,15 +8,15 @@ import java.util.Collection;
 import java.util.Collections; // Para Collections.singletonList
 
 @Entity
-@Table(name = "pessoa") // É uma boa prática definir o nome da tabela (em minúsculas para PostgreSQL)
-public class Pessoa implements UserDetails { // <--- ADICIONE "implements UserDetails"
+@Table(name = "pessoa") 
+public class Pessoa implements UserDetails { 
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String cpf;
-	private String dataNasc; // Mantendo como String, conforme sua preferência
+	private String dataNasc; 
 	private String telefone;
 	private String email;
 	private String senha;
@@ -26,7 +26,7 @@ public class Pessoa implements UserDetails { // <--- ADICIONE "implements UserDe
 	
 	private String role; // Ex: "ADMIN", "CLIENTE"
 
-    // --- MÉTODOS GETTERS E SETTERS (já existentes) ---
+    // --- MÉTODOS GETTERS E SETTERS ---
 	public String getRole() {
 		return role;
 	}

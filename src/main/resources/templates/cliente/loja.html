@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nossos Produtos - Royalstone Joalheria</title>
+    <link rel="stylesheet" href="/css/styleLoja.css">
+</head>
+<body>
+    <h1>Bem-vindo à Loja Royalstone!</h1>
+
+    <div th:if="${mensagemSucesso}" class="alert success">
+        <p th:text="${mensagemSucesso}"></p>
+    </div>
+    <div th:if="${mensagemErro}" class="alert error">
+        <p th:text="${mensagemErro}"></p>
+    </div>
+
+    <div th:if="${#lists.isEmpty(joias)}">
+        <p>Não há joias disponíveis no momento.</p>
+    </div>
+
+    <div class="product-grid">
+        <div th:each="joia : ${joias}" class="product-card">
+            <img th:src="${joia.imagemUrl}" alt="Imagem da Joia">
+            <h2 th:text="${joia.nome}">Nome da Joia</h2>
+            <p th:text="${joia.descricao}"></p>
+            <p class="price">Preço: <span th:text="${#numbers.formatCurrency(joia.preco)}">R$ 0,00</span></p>
+            
+            <p class="stock-info" th:if="${joia.estoque > 0}">Em estoque: <span th:text="${joia.estoque}"></span> unidades</p>
+            <p class="stock-info stock-esgotado" th:if="${joia.estoque == 0}">Esgotado</p>
+
+            <form th:action="@{/carrinho/adicionar}" method="post" th:if="${joia.estoque > 0}">
+                <input type="hidden" name="joiaId" th:value="${joia.id}" />
+                <label for="quantidade">Qtd:</label>
+                <input type="number" name="quantidade" id="quantidade" value="1" min="1" th:max="${joia.estoque}" style="width: 60px; text-align: center; margin-right: 10px;">
+                <button type="submit" class="btn-comprar">Adicionar ao Carrinho</button>
+            </form>
+            <button class="btn-comprar" disabled th:if="${joia.estoque == 0}">Esgotado</button>
+            <hr>
+        </div>
+    </div>
+
+    <p style="margin-top: 30px;"><a th:href="@{/carrinho}">Ver Meu Carrinho</a></p>
+    <p><a th:href="@{/home}">Voltar à Página Inicial</a></p>
+    
+    <footer>
+        <p>&copy; <span th:text="${#dates.year(#dates.createNow())}">2025</span> Royalstone Joalheria. Todos os direitos reservados.</p>
+        <form th:action="@{/logout}" method="post" style="display:inline;">
+            <button type="submit">Sair</button>
+        </form>
+    </footer>
+</body>
+</html>
