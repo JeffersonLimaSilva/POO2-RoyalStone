@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Meu Carrinho - Royalstone Joalheria</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/styleCarrinho.css">
     <style>
         /* Estilos específicos para o carrinho */
         .cart-item {
@@ -96,7 +96,7 @@
         <p th:text="${mensagemErro}"></p>
     </div>
 
-    <div th:if="${#lists.isEmpty(itensCarrinho)}">
+    <div th:if="${#lists.isEmpty(itensCarrinho)}" class="cart-empty-message">
         <p>Seu carrinho está vazio.</p>
         <p><a th:href="@{/loja}">Voltar para a Loja</a></p>
     </div>

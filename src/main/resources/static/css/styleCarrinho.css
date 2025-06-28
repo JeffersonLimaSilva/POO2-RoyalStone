@@ -1,0 +1,241 @@
+/* src/main/resources/static/css/style.css */
+
+/* --- Estilos Globais e Reset --- */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+a {
+    color: #b8860b; /* Tom dourado */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- Botões Genéricos --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none; /* Remove bordas padrão */
+}
+
+.btn-primary {
+    background-color: #b8860b; /* Cor principal (dourado) */
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #a0760a; /* Tom mais escuro ao passar o mouse */
+}
+
+/* --- Navegação/Header (Exemplo, caso você tenha um) --- */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #555;
+    text-decoration: none;
+}
+
+/* --- Estilos Específicos do Carrinho (Migrados do seu HTML) --- */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 2.2em;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    margin-bottom: 15px;
+}
+.cart-item:last-child {
+    border-bottom: none;
+}
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.item-details {
+    flex-grow: 1;
+}
+.item-details h3 {
+    margin: 0 0 5px 0;
+    color: #333;
+    font-size: 1.3em;
+}
+.item-details p {
+    margin: 0;
+    color: #555;
+    font-size: 0.95em;
+}
+.item-price {
+    font-weight: bold;
+    color: #b8860b; /* Tom dourado */
+}
+.cart-summary {
+    text-align: right;
+    margin-top: 30px;
+    border-top: 2px solid #b8860b; /* Linha dourada */
+    padding-top: 20px;
+}
+.cart-summary h2 {
+    font-size: 1.8em;
+    color: #333;
+}
+.cart-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Botões do carrinho (ajustados para a classe .btn) */
+.btn-remover, .btn-limpar, .btn-checkout {
+    /* Herda o estilo base de .btn */
+    display: inline-block; /* Garante que eles se comportem como blocos flex */
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    color: #fff; /* Texto branco */
+}
+
+.btn-remover, .btn-limpar {
+    background-color: #dc3545; /* Vermelho para remover/limpar */
+}
+.btn-remover:hover, .btn-limpar:hover {
+    background-color: #c82333;
+}
+.btn-checkout {
+     background-color: #28a745; /* Verde para checkout */
+}
+.btn-checkout:hover {
+    background-color: #218838;
+}
+
+/* Alertas */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 1.1em;
+    text-align: center;
+}
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #badbcc;
+}
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Quando o carrinho está vazio */
+.cart-empty-message { /* Use o seletor de classe */
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2em;
+    color: #666;
+    background-color: #f9f9f9; /* Adicionado para um leve destaque */
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9em;
+    border-top: 5px solid #b8860b;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer form {
+    margin-top: 10px;
+}
+
+footer button {
+    background-color: #555;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+footer button:hover {
+    background-color: #777;
+}

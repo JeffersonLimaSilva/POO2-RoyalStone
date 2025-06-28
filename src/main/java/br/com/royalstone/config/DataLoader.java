@@ -129,7 +129,7 @@ public class DataLoader {
                 brincoDiamanteOuroBranco.setDescricao("Clássicos brincos ponto de luz com diamantes pequenos em ouro branco.");
                 brincoDiamanteOuroBranco.setPreco(new BigDecimal("2100.00"));
                 brincoDiamanteOuroBranco.setEstoque(7);
-                brincoDiamanteOuroBranco.setImagemUrl("https://images.unsplash.com/photo-1599380295175-ce4e2d4d9b4b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); // Outra imagem de exemplo
+                brincoDiamanteOuroBranco.setImagemUrl("https://images.unsplash.com/photo-1588444650733-d0767b753fc8?q=80&w=1198&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); // Outra imagem de exemplo
                 brincoDiamanteOuroBranco.setMineralPrecioso(diamante); // Reutilizando diamante
                 brincoDiamanteOuroBranco.setMineralMetalico(ouroBranco); // Usando ouro branco
                 joiaRepository.save(brincoDiamanteOuroBranco);
